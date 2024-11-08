@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddotxhknjlwvl"]
+
+[ext_resource type="Script" path="res://fox.gd" id="1_ngucy"]
+[ext_resource type="Texture2D" uid="uid://chu3boakbsgh7" path="res://assets/fox_front.png" id="2_o3mi7"]
+[ext_resource type="Texture2D" uid="uid://c0jc43l0o5sxi" path="res://assets/fox_side.png" id="3_cux8m"]
+[ext_resource type="PackedScene" uid="uid://bh653m8blwilh" path="res://talk_bubble.tscn" id="4_fr27m"]
+[ext_resource type="PackedScene" uid="uid://c6g1mnjkn3avs" path="res://think_bubble.tscn" id="5_gputd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8iyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o3mi7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cux8m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vx6v"]
+radius = 48.0
+height = 180.0
+
+[node name="Fox" type="CharacterBody2D" groups=["player"]]
+collision_mask = 3
+script = ExtResource("1_ngucy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v8iyi")
+animation = &"walk"
+
+[node name="TalkBubble" parent="." instance=ExtResource("4_fr27m")]
+visible = false
+z_index = -1
+position = Vector2(112, -123)
+
+[node name="ThinkBubble" parent="." instance=ExtResource("5_gputd")]
+visible = false
+position = Vector2(134, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 26)
+shape = SubResource("CapsuleShape2D_8vx6v")

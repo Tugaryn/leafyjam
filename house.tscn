@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnjcy3g6op2v"]
+
+[ext_resource type="Script" path="res://house.gd" id="1_r58au"]
+[ext_resource type="Texture2D" uid="uid://53y024xiy4xw" path="res://assets/house.png" id="1_rvyjt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43ye6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rvyjt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkj3i"]
+size = Vector2(369.063, 440)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4b3w"]
+size = Vector2(194, 545)
+
+[node name="House" type="Node2D" groups=["house"]]
+script = ExtResource("1_r58au")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_43ye6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_kkj3i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-72, -8)
+shape = SubResource("RectangleShape2D_r4b3w")
+debug_color = Color(0.80132, 0.362187, 0.558, 0.42)
+
+[node name="EventLabel" type="Label" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = -208.0
+offset_right = 161.0
+offset_bottom = -185.0
+text = "\"E\" to go into house"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

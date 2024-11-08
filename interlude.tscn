@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://n0lyxnqvqc8m"]
+
+[ext_resource type="Script" path="res://interlude.gd" id="1_n8btm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5y2gb"]
+size = Vector2(1920, 1080)
+
+[node name="Interlude" type="Node2D"]
+script = ExtResource("1_n8btm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("PlaceholderTexture2D_5y2gb")
