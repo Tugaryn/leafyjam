@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b5lq1s6bmbb5y" path="res://assets/dog_front.png" id="1_lovkd"]
 [ext_resource type="Script" path="res://dog.gd" id="1_w5af7"]
-[ext_resource type="Texture2D" uid="uid://fpiuk00wxgn4" path="res://assets/dog_side.png" id="2_bmxu6"]
-[ext_resource type="PackedScene" uid="uid://bh653m8blwilh" path="res://talk_bubble.tscn" id="3_jbacw"]
-[ext_resource type="PackedScene" uid="uid://c6g1mnjkn3avs" path="res://think_bubble.tscn" id="5_ddg31"]
+[ext_resource type="Texture2D" uid="uid://dajc8iat5dq6p" path="res://assets/dog_side_1.png" id="3_rochx"]
+[ext_resource type="Texture2D" uid="uid://dcewqotx54fpm" path="res://assets/dog_side_2.png" id="4_q7pfk"]
+[ext_resource type="PackedScene" uid="uid://032ip1mss6v0" path="res://dog_talk_bubble.tscn" id="5_gjbk3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g0emy"]
 animations = [{
@@ -18,7 +18,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bmxu6")
+"texture": ExtResource("3_rochx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q7pfk")
 }],
 "loop": true,
 "name": &"walk",
@@ -30,12 +33,10 @@ script = ExtResource("1_w5af7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g0emy")
+animation = &"walk"
+frame = 1
+frame_progress = 0.586108
 
-[node name="TalkBubble" parent="." instance=ExtResource("3_jbacw")]
+[node name="DogTalkBubble" parent="." instance=ExtResource("5_gjbk3")]
 visible = false
-z_index = -1
-position = Vector2(112, -123)
-
-[node name="ThinkBubble" parent="." instance=ExtResource("5_ddg31")]
-visible = false
-position = Vector2(134, -150)
+position = Vector2(226, -175)

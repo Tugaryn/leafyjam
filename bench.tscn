@@ -1,7 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://rvu21mlnl32w"]
+[gd_scene load_steps=19 format=3 uid="uid://rvu21mlnl32w"]
 
 [ext_resource type="Texture2D" uid="uid://c6xinlt1mj46o" path="res://assets/bench.png" id="1_f0sna"]
 [ext_resource type="Script" path="res://bench.gd" id="1_yimnw"]
+[ext_resource type="Texture2D" uid="uid://gi45mfnqbisk" path="res://assets/button.png" id="3_22iwb"]
+[ext_resource type="Texture2D" uid="uid://b67xxagx0u2n1" path="res://assets/dog_sit.png" id="3_m68su"]
+[ext_resource type="Texture2D" uid="uid://cg8kj1jbtjpu2" path="res://assets/fox_sit.png" id="4_1qxhu"]
+[ext_resource type="Texture2D" uid="uid://dxr6udt2jsugl" path="res://assets/fox_smoke.png" id="5_4ynxm"]
+[ext_resource type="Texture2D" uid="uid://0xxigpkwh352" path="res://assets/fox_light.png" id="6_e2m0p"]
+[ext_resource type="Texture2D" uid="uid://c0ettyro7pv48" path="res://assets/fox_smoke_1.png" id="6_pwrar"]
+[ext_resource type="Texture2D" uid="uid://8yfuo5qw5itn" path="res://assets/fox_smoke_2.png" id="7_8d8h4"]
+[ext_resource type="Texture2D" uid="uid://cyj150fokl6br" path="res://assets/fox_smoke_3.png" id="8_w3fxy"]
+[ext_resource type="AudioStream" uid="uid://csvdmlp8uhxvx" path="res://sounds/lighter.wav" id="11_y7ou6"]
+[ext_resource type="AudioStream" uid="uid://bvnid1j5bs0xf" path="res://sounds/sit_on_bench.wav" id="12_fxn63"]
+[ext_resource type="PackedScene" uid="uid://c6g1mnjkn3avs" path="res://think_bubble.tscn" id="13_p2y1l"]
+[ext_resource type="PackedScene" uid="uid://bh653m8blwilh" path="res://talk_bubble.tscn" id="13_wf2rl"]
+[ext_resource type="PackedScene" uid="uid://032ip1mss6v0" path="res://dog_talk_bubble.tscn" id="14_em153"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1qkdc"]
 animations = [{
@@ -17,6 +30,42 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65y8u"]
 size = Vector2(354.125, 166.25)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_nphou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1qxhu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("5_4ynxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pwrar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8d8h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w3fxy")
+}],
+"loop": true,
+"name": &"smoke",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("6_e2m0p")
+}],
+"loop": false,
+"name": &"start_smoke",
+"speed": 1.0
+}]
+
 [node name="Bench" type="Node2D" groups=["bench"]]
 script = ExtResource("1_yimnw")
 
@@ -31,13 +80,73 @@ collision_mask = 3
 position = Vector2(0, -12.875)
 shape = SubResource("RectangleShape2D_65y8u")
 
+[node name="Dog" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(56, -40)
+texture = ExtResource("3_m68su")
+
+[node name="Fox" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-64, -56)
+sprite_frames = SubResource("SpriteFrames_nphou")
+animation = &"start_smoke"
+
 [node name="EventLabel" type="Label" parent="."]
 visible = false
-offset_left = -56.0
-offset_top = -112.0
-offset_right = 97.0
-offset_bottom = -89.0
-text = "\"E\" to sit"
+z_index = 1
+z_as_relative = false
+offset_left = -16.0
+offset_top = -256.0
+offset_right = 24.0
+offset_bottom = -208.0
+theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
+theme_override_font_sizes/font_size = 50
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="EventLabel"]
+z_as_relative = false
+position = Vector2(21, 30)
+texture = ExtResource("3_22iwb")
+
+[node name="SmokeLabel" type="Label" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+offset_left = -120.0
+offset_top = -266.0
+offset_right = -80.0
+offset_bottom = -208.0
+theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
+theme_override_font_sizes/font_size = 50
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SmokeLabel"]
+z_as_relative = false
+position = Vector2(21, 30)
+texture = ExtResource("3_22iwb")
+
+[node name="AudioLighter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_y7ou6")
+volume_db = -3.0
+
+[node name="AudioSit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_fxn63")
+
+[node name="FoxTalkBubble" parent="." instance=ExtResource("13_wf2rl")]
+visible = false
+position = Vector2(-280, -232)
+
+[node name="ThinkBubble" parent="." instance=ExtResource("13_p2y1l")]
+visible = false
+position = Vector2(-288, -216)
+
+[node name="DogTalkBubble" parent="." instance=ExtResource("14_em153")]
+visible = false
+position = Vector2(248, -192)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

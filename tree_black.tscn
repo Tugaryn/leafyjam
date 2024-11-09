@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcd5rkpmherxo"]
+
+[ext_resource type="Texture2D" uid="uid://cnyn8sd8ickdq" path="res://assets/leaves_4.png" id="1_0qamm"]
+[ext_resource type="Script" path="res://tree_tween.gd" id="1_i6tm3"]
+[ext_resource type="Texture2D" uid="uid://dq3u7pohhprni" path="res://assets/leaves_2.png" id="2_26gn5"]
+[ext_resource type="Texture2D" uid="uid://cxn8jva85s655" path="res://assets/tree_2.png" id="3_5n3ag"]
+
+[node name="TreeBlack" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_i6tm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("3_5n3ag")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-96, 8)
+texture = ExtResource("1_0qamm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(24, -320)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(176, 24)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(128, -224)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(-40, -439)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(168, -352)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(40, 127)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(40, 127)
+texture = ExtResource("1_0qamm")
+flip_h = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-80, -160)
+texture = ExtResource("2_26gn5")
+flip_h = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(144, -248)
+texture = ExtResource("2_26gn5")
+flip_h = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-104, -392)
+texture = ExtResource("2_26gn5")
+flip_h = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(-104, -264)
+texture = ExtResource("2_26gn5")
+flip_h = true

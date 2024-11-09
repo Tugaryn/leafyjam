@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cotm5hl00hwxk"]
+
+[ext_resource type="Script" path="res://tree_tween.gd" id="1_tcccq"]
+[ext_resource type="Texture2D" uid="uid://cmyr7mlmt1lbl" path="res://assets/tree_1.png" id="1_ylc4c"]
+[ext_resource type="Texture2D" uid="uid://de7wjl8dryapw" path="res://assets/leaves_5.png" id="2_n7otx"]
+[ext_resource type="Texture2D" uid="uid://r6ewwkclw3f4" path="res://assets/leaves_8.png" id="3_avn4f"]
+[ext_resource type="Texture2D" uid="uid://cjc7kft0act44" path="res://assets/leaves_6.png" id="4_w2yuj"]
+
+[node name="TreeRed" type="Node2D"]
+script = ExtResource("1_tcccq")
+
+[node name="Tree" type="Sprite2D" parent="."]
+texture = ExtResource("1_ylc4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, -392)
+texture = ExtResource("2_n7otx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -504)
+texture = ExtResource("2_n7otx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-80, -51)
+texture = ExtResource("3_avn4f")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(62, 272)
+texture = ExtResource("4_w2yuj")
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(192, -512)
+texture = ExtResource("4_w2yuj")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(36, 8)
+texture = ExtResource("3_avn4f")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(320, -264)
+texture = ExtResource("3_avn4f")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-16, -200)
+texture = ExtResource("3_avn4f")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(-144, -472)
+texture = ExtResource("3_avn4f")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(168, -152)
+texture = ExtResource("2_n7otx")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(-152, -320)
+texture = ExtResource("2_n7otx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(-152, -320)
+texture = ExtResource("2_n7otx")

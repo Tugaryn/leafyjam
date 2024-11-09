@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://vkbrrgx2ll26"]
+
+[ext_resource type="Texture2D" uid="uid://bfqon6qm04ikg" path="res://assets/bunch_4.png" id="1_8ohgb"]
+[ext_resource type="Script" path="res://bunch_tween.gd" id="2_qimri"]
+
+[node name="Bunch4" type="Sprite2D"]
+texture = ExtResource("1_8ohgb")
+script = ExtResource("2_qimri")

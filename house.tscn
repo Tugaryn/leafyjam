@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnjcy3g6op2v"]
+[gd_scene load_steps=8 format=3 uid="uid://bnjcy3g6op2v"]
 
 [ext_resource type="Script" path="res://house.gd" id="1_r58au"]
 [ext_resource type="Texture2D" uid="uid://53y024xiy4xw" path="res://assets/house.png" id="1_rvyjt"]
+[ext_resource type="AudioStream" uid="uid://egvbmn2jdb1p" path="res://sounds/door_open.wav" id="2_rel84"]
+[ext_resource type="Texture2D" uid="uid://gi45mfnqbisk" path="res://assets/button.png" id="3_bie4t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_43ye6"]
 animations = [{
@@ -23,6 +25,10 @@ size = Vector2(194, 545)
 [node name="House" type="Node2D" groups=["house"]]
 script = ExtResource("1_r58au")
 
+[node name="AudioOpen" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(56, -328)
+stream = ExtResource("2_rel84")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_43ye6")
 
@@ -42,11 +48,22 @@ debug_color = Color(0.80132, 0.362187, 0.558, 0.42)
 
 [node name="EventLabel" type="Label" parent="."]
 visible = false
-offset_left = 8.0
-offset_top = -208.0
-offset_right = 161.0
-offset_bottom = -185.0
-text = "\"E\" to go into house"
+z_index = 1
+z_as_relative = false
+offset_left = 56.0
+offset_top = -328.0
+offset_right = 96.0
+offset_bottom = -270.0
+theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
+theme_override_font_sizes/font_size = 50
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="EventLabel"]
+z_as_relative = false
+position = Vector2(21, 30)
+texture = ExtResource("3_bie4t")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

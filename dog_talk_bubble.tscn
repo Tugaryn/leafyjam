@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://032ip1mss6v0"]
+
+[ext_resource type="Texture2D" uid="uid://cpycylkxdpl5m" path="res://assets/dog_talk_bubble.png" id="1_l6qoh"]
+[ext_resource type="Script" path="res://fox_talk_bubble.gd" id="2_647v2"]
+[ext_resource type="Script" path="res://label_typing.gd" id="2_tonbv"]
+[ext_resource type="AudioStream" uid="uid://sxvcn37lllmi" path="res://sounds/dog_talk.wav" id="4_sc8vi"]
+
+[node name="DogTalkBubble" type="Sprite2D"]
+texture = ExtResource("1_l6qoh")
+flip_h = true
+script = ExtResource("2_647v2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -108.0
+offset_top = -79.0
+offset_right = 114.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0.32, 0.2528, 0.208, 1)
+theme_override_font_sizes/font_size = 25
+text = "test text"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_tonbv")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sc8vi")

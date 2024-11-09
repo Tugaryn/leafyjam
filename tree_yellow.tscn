@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://qmx30jnpf5n1"]
+
+[ext_resource type="Texture2D" uid="uid://cmyr7mlmt1lbl" path="res://assets/tree_1.png" id="1_kwoi8"]
+[ext_resource type="Script" path="res://tree_tween.gd" id="1_xkqq2"]
+[ext_resource type="Texture2D" uid="uid://dc0b1sgp5gds2" path="res://assets/leaves_1.png" id="2_gu5li"]
+[ext_resource type="Texture2D" uid="uid://bobqhasaewis6" path="res://assets/leaves_3.png" id="3_ycwn5"]
+
+[node name="TreeYellow" type="Node2D"]
+script = ExtResource("1_xkqq2")
+
+[node name="TreeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_kwoi8")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(168, -184)
+texture = ExtResource("2_gu5li")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-16, -88)
+texture = ExtResource("3_ycwn5")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(8, -488)
+texture = ExtResource("3_ycwn5")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(96, -8)
+texture = ExtResource("3_ycwn5")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(-128, -40)
+texture = ExtResource("3_ycwn5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(144, -392)
+texture = ExtResource("2_gu5li")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-27, -480)
+texture = ExtResource("2_gu5li")
+flip_h = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(136, -520)
+texture = ExtResource("2_gu5li")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-160, -320)
+texture = ExtResource("2_gu5li")

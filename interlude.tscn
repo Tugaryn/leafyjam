@@ -1,13 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://n0lyxnqvqc8m"]
+[gd_scene load_steps=5 format=3 uid="uid://n0lyxnqvqc8m"]
 
 [ext_resource type="Script" path="res://interlude.gd" id="1_n8btm"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5y2gb"]
-size = Vector2(1920, 1080)
+[ext_resource type="Texture2D" uid="uid://dlp7mj7r0df7k" path="res://assets/interlude_back.png" id="2_jh0fu"]
+[ext_resource type="PackedScene" uid="uid://be8jb55tfbdsk" path="res://tree_pine.tscn" id="3_7s8t0"]
+[ext_resource type="AudioStream" uid="uid://dmtppgk143hdi" path="res://sounds/door_close.wav" id="4_f54xx"]
 
 [node name="Interlude" type="Node2D"]
 script = ExtResource("1_n8btm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-texture = SubResource("PlaceholderTexture2D_5y2gb")
+texture = ExtResource("2_jh0fu")
+
+[node name="TreePine" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(776, 136)
+
+[node name="TreePine3" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(-568, 480)
+rotation = -0.0959931
+scale = Vector2(-1, 1)
+
+[node name="TreePine4" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(-320, 520)
+rotation = -0.0959931
+scale = Vector2(-1, 1)
+
+[node name="TreePine5" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(-72, 472)
+rotation = -0.0959931
+scale = Vector2(-1, 1)
+
+[node name="TreePine6" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(120, 568)
+rotation = -0.0959931
+scale = Vector2(-1, 1)
+
+[node name="TreePine7" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(392, 392)
+rotation = -0.0959931
+scale = Vector2(-1, 1)
+
+[node name="TreePine8" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(392, 392)
+rotation = -0.0959931
+scale = Vector2(-1, 1)
+
+[node name="TreePine2" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(-752, 160)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -312.0
+offset_top = -96.0
+offset_right = 297.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.317647, 0.2, 0.172549, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+The 1 day of fallen leaves"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+visible = false
+offset_left = -440.0
+offset_top = -448.0
+offset_right = 451.0
+offset_bottom = -351.0
+theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+Dream that I am sweeping a yellow leaf"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioClose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f54xx")
