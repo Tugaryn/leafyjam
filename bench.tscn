@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://rvu21mlnl32w"]
+[gd_scene load_steps=22 format=3 uid="uid://rvu21mlnl32w"]
 
 [ext_resource type="Texture2D" uid="uid://c6xinlt1mj46o" path="res://assets/bench.png" id="1_f0sna"]
 [ext_resource type="Script" path="res://bench.gd" id="1_yimnw"]
 [ext_resource type="Texture2D" uid="uid://gi45mfnqbisk" path="res://assets/button.png" id="3_22iwb"]
 [ext_resource type="Texture2D" uid="uid://b67xxagx0u2n1" path="res://assets/dog_sit.png" id="3_m68su"]
 [ext_resource type="Texture2D" uid="uid://cg8kj1jbtjpu2" path="res://assets/fox_sit.png" id="4_1qxhu"]
+[ext_resource type="Texture2D" uid="uid://dkd16um230l0v" path="res://assets/dog_sit_2.png" id="4_gxtqd"]
 [ext_resource type="Texture2D" uid="uid://dxr6udt2jsugl" path="res://assets/fox_smoke.png" id="5_4ynxm"]
+[ext_resource type="Texture2D" uid="uid://m4e74ckjoy0h" path="res://assets/fox_sit_2.png" id="5_u7te2"]
 [ext_resource type="Texture2D" uid="uid://0xxigpkwh352" path="res://assets/fox_light.png" id="6_e2m0p"]
 [ext_resource type="Texture2D" uid="uid://c0ettyro7pv48" path="res://assets/fox_smoke_1.png" id="6_pwrar"]
 [ext_resource type="Texture2D" uid="uid://8yfuo5qw5itn" path="res://assets/fox_smoke_2.png" id="7_8d8h4"]
@@ -30,15 +32,32 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65y8u"]
 size = Vector2(354.125, 166.25)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nphou"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjsgo"]
 animations = [{
 "frames": [{
+"duration": 5.0,
+"texture": ExtResource("3_m68su")
+}, {
 "duration": 1.0,
-"texture": ExtResource("4_1qxhu")
+"texture": ExtResource("4_gxtqd")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nphou"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("4_1qxhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u7te2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 5.0,
@@ -80,16 +99,15 @@ collision_mask = 3
 position = Vector2(0, -12.875)
 shape = SubResource("RectangleShape2D_65y8u")
 
-[node name="Dog" type="Sprite2D" parent="."]
+[node name="Dog" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(56, -40)
-texture = ExtResource("3_m68su")
+sprite_frames = SubResource("SpriteFrames_gjsgo")
 
 [node name="Fox" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-64, -56)
 sprite_frames = SubResource("SpriteFrames_nphou")
-animation = &"start_smoke"
 
 [node name="EventLabel" type="Label" parent="."]
 visible = false

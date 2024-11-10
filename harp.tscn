@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7wcte17xn3c1"]
+
+[ext_resource type="Script" path="res://harp.gd" id="1_h8peo"]
+[ext_resource type="Texture2D" uid="uid://gd6ihpck6s6f" path="res://assets/harp.png" id="1_rg7qd"]
+[ext_resource type="Texture2D" uid="uid://gi45mfnqbisk" path="res://assets/button.png" id="2_jpc76"]
+[ext_resource type="AudioStream" uid="uid://cudgb4q6v435y" path="res://sounds/harp.wav" id="4_dxd17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2q5i"]
+size = Vector2(128, 166.25)
+
+[node name="Harp" type="Node2D" groups=["harp"]]
+script = ExtResource("1_h8peo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rg7qd")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(32, 48)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -12.875)
+shape = SubResource("RectangleShape2D_q2q5i")
+
+[node name="EventLabel" type="Label" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+offset_left = -16.0
+offset_top = -256.0
+offset_right = 24.0
+offset_bottom = -208.0
+theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
+theme_override_font_sizes/font_size = 50
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="EventLabel"]
+z_as_relative = false
+position = Vector2(21, 30)
+texture = ExtResource("2_jpc76")
+
+[node name="AudioOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dxd17")
+volume_db = -0.793
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

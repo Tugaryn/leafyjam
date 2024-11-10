@@ -14,15 +14,17 @@ texture = ExtResource("2_jh0fu")
 [node name="TreePine" parent="." instance=ExtResource("3_7s8t0")]
 position = Vector2(776, 136)
 
+[node name="TreePine10" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(823, 542)
+
 [node name="TreePine3" parent="." instance=ExtResource("3_7s8t0")]
 position = Vector2(-568, 480)
 rotation = -0.0959931
 scale = Vector2(-1, 1)
 
 [node name="TreePine4" parent="." instance=ExtResource("3_7s8t0")]
-position = Vector2(-320, 520)
-rotation = -0.0959931
-scale = Vector2(-1, 1)
+position = Vector2(-268, 644)
+rotation = 0.180668
 
 [node name="TreePine5" parent="." instance=ExtResource("3_7s8t0")]
 position = Vector2(-72, 472)
@@ -30,8 +32,8 @@ rotation = -0.0959931
 scale = Vector2(-1, 1)
 
 [node name="TreePine6" parent="." instance=ExtResource("3_7s8t0")]
-position = Vector2(120, 568)
-rotation = -0.0959931
+position = Vector2(132, 638)
+rotation = -0.00791648
 scale = Vector2(-1, 1)
 
 [node name="TreePine7" parent="." instance=ExtResource("3_7s8t0")]
@@ -45,7 +47,13 @@ rotation = -0.0959931
 scale = Vector2(-1, 1)
 
 [node name="TreePine2" parent="." instance=ExtResource("3_7s8t0")]
-position = Vector2(-752, 160)
+position = Vector2(-904, 256)
+scale = Vector2(-1, 1)
+
+[node name="TreePine9" parent="." instance=ExtResource("3_7s8t0")]
+position = Vector2(-920, 680)
+rotation = -0.10538
+scale = Vector2(-1, 1)
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -53,7 +61,7 @@ offset_left = -312.0
 offset_top = -96.0
 offset_right = 297.0
 offset_bottom = 1.0
-theme_override_colors/font_color = Color(0.317647, 0.2, 0.172549, 1)
+theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
 theme_override_font_sizes/font_size = 40
 text = "
 The 1 day of fallen leaves"
@@ -69,7 +77,7 @@ offset_bottom = -351.0
 theme_override_colors/font_color = Color(0.631373, 0.313726, 0.203922, 1)
 theme_override_font_sizes/font_size = 40
 text = "
-Dream that I am sweeping a yellow leaf"
+Seven days of falling leaves"
 horizontal_alignment = 1
 vertical_alignment = 1
 

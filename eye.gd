@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var time: int = 10
+@onready var time: int = 10
 
 @onready var timer = $Timer
 

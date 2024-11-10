@@ -28,11 +28,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		sprite.play('default')
 	move_and_slide()
-
-func _ready() -> void:
-	pass
-	#await get_tree().create_timer(1).timeout
-	#think('test')
 	
 func _process(delta: float) -> void:
 	if is_walking:
@@ -44,6 +39,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().call_group("bench", 'activate')
 		get_tree().call_group("house", 'activate')
 		get_tree().call_group("mailbox", 'activate')
+		get_tree().call_group("harp", 'activate')
 
 func sit():
 	visible = false
@@ -53,11 +49,23 @@ func stand():
 	
 func open_mailbox():
 	is_block_movement = true
-	await think('*Nothing*')
+	if main.count_day == 4:
+		await execute_mailbox_dialog_1()
+		main.number_cigaretes += 4
+	else:
+		await think('*Nothing*')
 	is_block_movement = false
 
-func talk(text,time = 1) -> void:
+func talk(text,time = 1, flip = false) -> void:
 	main.is_dialog = true
+	
+	if flip:
+		talkBubble.flip_h = true
+		talkBubble.position.x = 200
+	else:
+		talkBubble.flip_h = false
+		talkBubble.position.x = -196
+	
 	await talkBubble.start_typing(text,time)
 	main.is_dialog = false
 	
@@ -68,3 +76,26 @@ func think(text, time = 1) -> void:
 	
 func set_day(day: int):
 	pass
+	
+func execute_mailbox_dialog_1():
+	const DIALOG = [
+	{
+		"type": 0, "who":0, "text": "Cigarettes", "time": 2,
+	},
+		{
+		"type": 0, "who":0, "text": "...", "time": 2,
+	},
+		{
+		"type": 0, "who":0, "text": "Kamel", "time": 2,
+	},
+		{
+		"type": 0, "who":0, "text": "...", "time": 2,
+	},
+		{
+		"type": 0, "who":0, "text": "Cool", "time": 2,
+	},
+		{
+		"type": 0, "who":0, "text": "*Got four cigarettes*", "time": 2,
+	},
+]
+	await main.execute_dialog(DIALOG)

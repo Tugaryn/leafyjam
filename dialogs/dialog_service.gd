@@ -18,7 +18,10 @@ func execute(array: Array) -> void:
 	for dialog in array:
 		if dialog.has("is_bench") and dialog.is_bench:
 			if dialog.who == 0:
-				await bench.fox_talk(dialog.text, dialog.time)
+				if dialog.type == 0:
+					await bench.fox_think(dialog.text, dialog.time)
+				else:
+					await bench.fox_talk(dialog.text, dialog.time)
 			else:
 				await bench.dog_talk(dialog.text, dialog.time)
 		else:
@@ -26,7 +29,8 @@ func execute(array: Array) -> void:
 				if dialog.type == 0:
 					await fox.think(dialog.text, dialog.time)
 				else:
-					await fox.talk(dialog.text, dialog.time)
+					var flip = dialog.has("flip") and dialog.flip
+					await fox.talk(dialog.text, dialog.time, flip)
 			else:
 				await dog.talk(dialog.text, dialog.time)
 	main.is_dialog = false

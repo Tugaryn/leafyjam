@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func execute():
 
-	label.text ="The " + str(main.count_day) + " day of fallen leaves"
+	label.text ="The " + str(main.count_day) + " day"
 	visible = true
 	var time
 	if main.count_day == 1:

@@ -20,7 +20,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		event_label.visible = false
 
 func activate():
-	if can_activate and !main.is_interlude:
-		print('test')
+	if can_activate and !main.is_interlude and !main.is_dialog and main.count_day != 7:
 		audio_open.play()
 		main.set_next_day()
